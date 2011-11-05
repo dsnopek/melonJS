@@ -446,6 +446,9 @@
 					// scale factor of the object
 					this.scale = new me.Vector2d(1.0, 1.0);
 
+					// image draw offset
+					this.spriteoffset = new me.Vector2d(0, 0);
+
 					// create a a default collision rectangle
 					this.collisionBox = new me.Rect(this.pos, this.width,
 							this.height);
@@ -564,7 +567,7 @@
 				 * @param {Context2d} context 2d Context on which draw our object
 				 **/
 				draw : function(context) {
-					var xpos = this.pos.x - this.vp.pos.x, ypos = this.pos.y - this.vp.pos.y;
+					var xpos = this.pos.x - this.vp.pos.x + this.spriteoffset.x, ypos = this.pos.y - this.vp.pos.y + this.spriteoffset.y;
 
 					if (this.scaleFlag) {
 						context.scale(this.scale.x, this.scale.y);
